@@ -1,0 +1,17 @@
+.gallery_container {
+  display: flex;
+  gap: 1rem; /* Odstęp między kolumnami */
+}
+.gallery_column {
+  flex: 1; /* Każda kolumna zajmuje równą szerokość */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Odstęp między zdjęciami wewnątrz kolumny */
+}
+
+.gallery_image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
