@@ -8,10 +8,3 @@
   flex-direction: column;
   gap: 1rem; /* Odstęp między zdjęciami wewnątrz kolumny */
 }
-
-.gallery_image {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}

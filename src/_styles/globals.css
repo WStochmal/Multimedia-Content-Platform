@@ -1,5 +1,12 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../_fonts/Inter.ttf");
+  font-weight: 400;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Inter;
 }
