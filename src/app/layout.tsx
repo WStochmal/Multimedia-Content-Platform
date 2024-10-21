@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/_styles/globals.css";
+import { AuthContextProvider } from "@/_context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Multimedia Content Platform",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AuthContextProvider>{children}</AuthContextProvider>
+      </body>
     </html>
   );
 }

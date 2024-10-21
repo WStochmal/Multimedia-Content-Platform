@@ -10,7 +10,6 @@ export default function Home() {
       <h1>Home</h1>
       <p>For you</p>
       {/*  // !TODO: fix a gallery component to properly manage images into column */}
-
       <Gallery />
     </div>
   );
