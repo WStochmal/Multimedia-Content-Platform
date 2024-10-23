@@ -4,6 +4,15 @@ export interface AuthLoginProps {
   password: string;
 }
 
+// Definition: Interfaces for Auth Register
+export interface AuthRegisterProps {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  name?: string | null;
+  avatar?: File | null;
+}
+
 // Definition: Interfaces for Auth Props
 export interface AuthProps {
   token: string | null;

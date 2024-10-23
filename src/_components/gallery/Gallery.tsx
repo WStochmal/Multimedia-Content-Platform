@@ -56,14 +56,43 @@ const images = [
     hashtag: ["#nature", "#desert"],
     url: "https://images.unsplash.com/photo-1729190932061-f589db40f31e?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  // Add more images here
+  {
+    author: "Jan Kowalski",
+    uploaded: "2021-12-01T12:00:00Z",
+    hashtag: ["#nature", "#desert"],
+    url: "https://plus.unsplash.com/premium_photo-1712029092542-4223e7e91ea4?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    author: "Jan Kowalski",
+    uploaded: "2021-12-01T12:00:00Z",
+    hashtag: ["#nature", "#desert"],
+    url: "https://images.unsplash.com/photo-1729599923222-127191facb83?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    author: "Jan Kowalski",
+    uploaded: "2021-12-01T12:00:00Z",
+    hashtag: ["#nature", "#desert"],
+    url: "https://images.unsplash.com/photo-1729512942141-4ddc5bf09dc2?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    author: "Jan Kowalski",
+    uploaded: "2021-12-01T12:00:00Z",
+    hashtag: ["#nature", "#desert"],
+    url: "https://images.unsplash.com/photo-1714921861690-fa78d81eb2c6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    author: "Jan Kowalski",
+    uploaded: "2021-12-01T12:00:00Z",
+    hashtag: ["#nature", "#desert"],
+    url: "https://images.unsplash.com/photo-1699791911069-2ee9937e97ee?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 const Gallery: React.FC = () => {
   const column1 = images.filter((_, index) => index % 3 === 0);
   const column2 = images.filter((_, index) => index % 3 === 1);
   const column3 = images.filter((_, index) => index % 3 === 2);
-
-  console.log(column1, column2, column3);
 
   return (
     <div className={style.gallery_container}>

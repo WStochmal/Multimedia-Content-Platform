@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  password String
+  name     String?
+  avatar   String?  // Nowe pole, może być opcjonalne
+  media    Media[]  // Relacja jeden do wielu z modelu Media
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  url       String   // URL pliku (adres na serwerze)
+  title     String?  // Opcjonalny tytuł mediów
+  description String?  // Opcjonalny opis mediów
+  tags      String[]  // Tagi przypisane do mediów (lista tagów)
+  createdAt DateTime @default(now())
+  
+  // Relacja: Media są powiązane z użytkownikiem, który je wrzucił
+  uploadedBy User     @relation(fields: [uploadedById], references: [id])
+  uploadedById Int    // Pole klucza obcego, wskazuje na użytkownika
+}

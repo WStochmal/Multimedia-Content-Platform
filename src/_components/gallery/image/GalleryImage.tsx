@@ -1,14 +1,14 @@
 import React from "react";
 import style from "./GalleryImage.module.css";
 import { Icon } from "@/_assets/icons/Icon";
-// !TODO move p
-
+// !TODO move props into seperate file
 interface GalleryImageProps {
   author: string;
   uploaded: string;
   hashtag: string[];
   url: string;
 }
+
 const GalleryImage = ({ image }: { image: GalleryImageProps }) => {
   const displayTags = (tags: string[]) => {
     return tags.map((tag) => {
@@ -39,8 +39,9 @@ const GalleryImage = ({ image }: { image: GalleryImageProps }) => {
             <p>{image.uploaded}</p>
           </div>
         </div>
+        {/* // !TODO fix tags so they wouldn't make additional space beetwen images */}
+        <div className={style.image_tags}>{displayTags(image.hashtag)}</div>
       </div>
-      <div className={style.image_tags}>{displayTags(image.hashtag)}</div>
     </div>
   );
 };
