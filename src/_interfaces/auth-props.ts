@@ -18,8 +18,9 @@ export interface AuthProps {
   token: string | null;
   user: {
     id: number;
-    name: string;
+    name?: string;
     email: string;
+    avatar?: string;
   } | null;
 }
 

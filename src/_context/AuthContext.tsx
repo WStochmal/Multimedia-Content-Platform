@@ -4,7 +4,7 @@ import {
   AuthContextProps,
   AuthProps,
 } from "@/_interfaces/auth-props";
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useEffect } from "react";
 
 // Definition of AuthState type, based on AuthProps
 type AuthState = AuthProps;
@@ -47,7 +47,14 @@ export const AuthContextProvider = ({
     dispatch,
   };
 
-  console.log(state);
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      dispatch({ type: "LOGIN", payload: JSON.parse(user) });
+    }
+  }, []);
+
+  // console.log(state);
 
   return (
     <AuthContext.Provider value={authContextValue}>
