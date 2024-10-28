@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json({ message: "Media uploaded", media });
+    return NextResponse.json({ message: "Media uploaded" });
   } catch (error) {
     console.error("Error during media upload:", error);
     return NextResponse.json(

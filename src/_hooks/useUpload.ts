@@ -10,10 +10,12 @@ export const useUpload = () => {
   const [error, setError] = useState<string | null>(null);
 
   const upload = async (formData: UploadProps) => {
+    console.log("Uploading", formData);
+
     const form = new FormData();
     form.append("title", formData.title);
     form.append("description", formData.description);
-    formData.tags.forEach((tag) => form.append("tags[]", tag));
+    formData.tags.forEach((tag) => form.append("tags", tag));
 
     if (formData.file) form.append("file", formData.file);
 
