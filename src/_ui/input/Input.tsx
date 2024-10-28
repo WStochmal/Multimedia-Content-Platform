@@ -10,7 +10,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <span className={style.input_container}>
-      {icon && <Icon type={icon} height={18} width={18} />}
+      {icon && <Icon type={icon} height={18} width={18} color="#ccc" />}
       <input
         className={style.input}
         type={type}

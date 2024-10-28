@@ -1,4 +1,8 @@
 .gallery_container {
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%);
   display: flex;
   gap: 1.5rem; /* Odstęp między kolumnami */
 }

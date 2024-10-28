@@ -1,17 +1,24 @@
 .input_container {
   display: flex;
   gap: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ececec;
+  background: #ececec;
   align-items: center;
   justify-content: left;
 }
 .input {
   border: 0;
+  background: transparent;
+  width: 100%;
 }
 .input:focus {
   outline: none;
   width: 100%;
   height: 100%;
+}
+
+.input_container:focus-within {
+  background: white;
 }

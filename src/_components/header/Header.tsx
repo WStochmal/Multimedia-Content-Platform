@@ -7,19 +7,20 @@ export const Header = () => {
     <header className={style.header}>
       <div className={style.header_logo}></div>
 
-      {state?.user && (
+      <div className={style.header_aside}>
+        {/* // !TODO create a ui button component */}
+        <button>Upload Image</button>
         <div className={style.header_user}>
-          <div className={style.header_user_name}>
-            {state.user?.name || state.user.email}
-          </div>
-          <div className={style.header_user_avatar}>
-            <img
-              src={`http://localhost:3000/avatar/${state.user.avatar}`}
-              alt={state.user.email}
-            />
-          </div>
+          {(state?.user && (
+            <div className={style.header_user_avatar}>
+              <img
+                src={`http://localhost:3000/avatar/${state.user.avatar}`}
+                alt={state.user.email}
+              />
+            </div>
+          )) || <div>Sign in</div>}
         </div>
-      )}
+      </div>
     </header>
   );
 };

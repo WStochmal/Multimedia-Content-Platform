@@ -6,12 +6,13 @@ interface IconProps {
   type: string;
   width: number;
   height: number;
+  color?: string;
 }
 
-export const Icon: React.FC<IconProps> = ({ type, width, height }) => {
+export const Icon: React.FC<IconProps> = ({ type, width, height, color }) => {
   switch (type) {
     case "search":
-      return <SearchIcon width={width} height={height} />;
+      return <SearchIcon width={width} height={height} color={color} />;
     case "user":
       return <UserIcon width={width} height={height} />;
     default:

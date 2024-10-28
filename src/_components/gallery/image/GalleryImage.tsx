@@ -40,7 +40,7 @@ const GalleryImage = ({ image }: { image: GalleryImageProps }) => {
           </div>
         </div>
         {/* // !TODO fix tags so they wouldn't make additional space beetwen images */}
-        <div className={style.image_tags}>{displayTags(image.hashtag)}</div>
+        {/* <div className={style.image_tags}>{displayTags(image.hashtag)}</div> */}
       </div>
     </div>
   );
