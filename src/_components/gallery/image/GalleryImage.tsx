@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import style from "./GalleryImage.module.css";
 import { Icon } from "@/_assets/icons/Icon";
+import { useGallery } from "@/_hooks/useGallery";
 // !TODO move props into seperate file
 interface GalleryImageProps {
   author: string;
@@ -10,6 +12,7 @@ interface GalleryImageProps {
 }
 
 const GalleryImage = ({ image }: { image: GalleryImageProps }) => {
+  const { fetchGallery, isLoading, error } = useGallery();
   const displayTags = (tags: string[]) => {
     return tags.map((tag) => {
       return (
@@ -19,6 +22,7 @@ const GalleryImage = ({ image }: { image: GalleryImageProps }) => {
       );
     });
   };
+
   return (
     <div className={style.gallery_item}>
       <div className={style.gallery_image_container}>
