@@ -1,0 +1,160 @@
+.selectedImageContainerBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.selectedImageContainer {
+  width: 80%;
+  height: 50svh;
+  position: relative;
+  background: white;
+  display: flex;
+  z-index: 2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.selectedImageContainer div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.selectedImageContainer div img.image {
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.selectedImageContainer div img.imageBgFilter {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(10px) brightness(0.8);
+}
+
+.selectedImageHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spanBlock {
+  width: 100%;
+}
+
+.spanBlock:nth-child(2) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spanBlockHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.spanBlockHeader h2 {
+  line-height: 1;
+}
+
+.spanBlockHeader div {
+  display: flex;
+  gap: 0.5rem;
+  width: auto;
+}
+
+.spanBlockHeaderFooter {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.spanBlockHeaderFooter span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spanBlockHeaderFooter span:nth-child(2) {
+  border-left: 1px solid #e0e0e0;
+  padding-left: 1rem;
+}
+
+.description {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 1rem;
+  overflow-y: scroll;
+  display: block !important;
+  color: #555;
+}
+
+.tags {
+  height: auto !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: scroll;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  flex-direction: row;
+}
+
+.tags span {
+  background: grey;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+}

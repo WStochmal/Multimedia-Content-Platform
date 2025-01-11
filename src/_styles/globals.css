@@ -1,12 +1,85 @@
 @font-face {
-  font-family: "Inter";
-  src: url("../_fonts/Inter.ttf");
-  font-weight: 400;
+    font-family: "Inter";
+    src: url("../_fonts/Inter.ttf");
+    font-weight: 400;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+.content {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 3rem;
+}
+
+
+/* !TODO: Move button to standalone component */
+
+
+/* COMMON BUTTON */
+
+
+/* .commonBtn {
+    border: 1px solid black;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.commonBtn a {
+    color: white;
+    text-decoration: none;
+}
+
+.commonBtn:hover {
+    background: #aba9a9;
+} */
+
+button.commonBtn {
+    background: #7f3f98;
+    border: 1px solid #7f3f98;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+button.commonBtn:hover {
+    background: #5f2c6e;
+}
+
+button.inactive {
+    background: white;
+    border: 1px solid #7f3f98;
+    color: #7f3f98;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+button.inactive:hover {
+    background: #5f2c6e;
+    color: white;
 }

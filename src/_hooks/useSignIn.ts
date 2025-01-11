@@ -25,18 +25,15 @@ export const useSignin = () => {
       localStorage.setItem("user", JSON.stringify(response.data));
       setIsLoading(false);
       dispatch({ type: "LOGIN", payload: response.data });
+      return true;
     } catch (error) {
       console.log(error);
+      return false;
       setError(
         error.response?.data?.message?.toString() || "An error occurred"
       );
     }
   };
-
-  try {
-  } catch (error) {
-    console.log(error);
-  }
 
   return { error, isLoading, signIn };
 };

@@ -1,14 +1,68 @@
 .gallery_container {
-  position: relative;
-  width: 80%;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-  gap: 1.5rem; /* Odstęp między kolumnami */
+    position: relative;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    gap: 1.5rem;
+    /* Odstęp między kolumnami */
 }
+
 .gallery_column {
-  flex: 1; /* Każda kolumna zajmuje równą szerokość */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Odstęp między zdjęciami wewnątrz kolumny */
+    flex: 1;
+    /* Każda kolumna zajmuje równą szerokość */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Odstęp między zdjęciami wewnątrz kolumny */
+}
+
+.no_more_images {
+    text-align: center;
+    padding: 1rem 0;
+    color: #666;
+}
+
+.gallery_type {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.gallery_title {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.gallery_title h1::first-letter {
+    text-transform: uppercase;
+}
+
+.gallery_title h1 {
+    padding-bottom: 0.5rem;
+}
+
+.gallery_type button {
+    cursor: pointer;
+}
+
+.gallery_type button.commonBtn2 {
+    position: relative;
+    top: 1px;
+    background: transparent;
+    color: black;
+    padding: 0.25rem 0;
+    border: 0;
+    border-bottom: 3px solid #7f3f98;
+}
+
+.gallery_type button.inactive2 {
+    position: relative;
+    top: 1px;
+    background: transparent;
+    color: black;
+    padding: 0.25rem 0;
+    border: 0;
+    border-bottom: 3px solid transparent;
 }

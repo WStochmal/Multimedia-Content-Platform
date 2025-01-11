@@ -1,0 +1,19 @@
+.formHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.formHeaderPart {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.formsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}

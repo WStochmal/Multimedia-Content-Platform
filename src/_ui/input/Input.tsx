@@ -5,6 +5,7 @@ export const Input = ({
   type,
   placeholder,
   onChange,
+  onKeyDown,
   icon,
   ...props
 }: InputProps) => {
@@ -16,6 +17,7 @@ export const Input = ({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         {...props}
       />
     </span>

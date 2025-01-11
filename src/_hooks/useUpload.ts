@@ -9,15 +9,21 @@ export const useUpload = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const upload = async (formData: UploadProps) => {
-    console.log("Uploading", formData);
+  const upload = async (formDataArray: UploadProps[]) => {
+    console.log("Uploading", formDataArray);
 
     const form = new FormData();
-    form.append("title", formData.title);
-    form.append("description", formData.description);
-    formData.tags.forEach((tag) => form.append("tags", tag));
 
-    if (formData.file) form.append("file", formData.file);
+    formDataArray.forEach((formData, index) => {
+      form.append(`items[${index}][title]`, formData.title);
+      form.append(`items[${index}][description]`, formData.description);
+
+      formData.tags.forEach((tag) =>
+        form.append(`items[${index}][tags][]`, tag)
+      );
+      // !TODO: Add file validation; if missing display error
+      if (formData.file) form.append(`items[${index}][file]`, formData.file);
+    });
 
     try {
       setIsLoading(true);

@@ -2,7 +2,8 @@
 import { AuthRegisterProps } from "@/_interfaces/auth-props";
 import axios from "axios";
 import React from "react";
-
+import AuthStyle from "@/_styles/modules/Auth.module.css";
+import { Input } from "@/_ui/input/Input";
 const SignUpPage = () => {
   const [formData, setFormData] = React.useState<AuthRegisterProps>({
     email: "",
@@ -31,37 +32,63 @@ const SignUpPage = () => {
         },
       });
       console.log(response);
+      alert("User has been created");
     } catch (e) {
       console.log(e);
     }
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Name"
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        />
-        <input
-          type="file"
-          onChange={(e) =>
-            setFormData({ ...formData, avatar: e.target.files?.[0] })
-          }
-        />
-        <button type="submit">Sign Up</button>
+      <form onSubmit={handleSubmit} className={AuthStyle.formContainer}>
+        <h2>Sign Up</h2>
+        <span className={AuthStyle.inputContainer}>
+          <Input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+            }}
+            icon="search"
+            required
+          />
+        </span>
+        <span>
+          <Input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
+            icon="search"
+            required
+          />
+        </span>
+
+        <span>
+          <Input
+            type="text"
+            placeholder="Name"
+            onChange={(e) => {
+              setFormData({ ...formData, name: e.target.value });
+            }}
+            icon="search"
+            required
+          />
+        </span>
+
+        <span>
+          <input
+            type="file"
+            onChange={(e) =>
+              setFormData({ ...formData, avatar: e.target.files?.[0] })
+            }
+            required
+          />
+        </span>
+
+        <button className="commonBtn" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );

@@ -12,25 +12,38 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model User {
-  id       Int      @id @default(autoincrement())
-  email    String   @unique
-  password String
-  name     String?
-  avatar   String?  // Nowe pole, może być opcjonalne
-  media    Media[]  // Relacja jeden do wielu z modelu Media
+  id         Int          @id @default(autoincrement())
+  email      String       @unique
+  password   String
+  name       String?
+  avatar     String?      // Opcjonalne pole avatar
+  media      Media[]      // Relacja jeden do wielu z modelem Media
+  lists      MediaList[]  // Relacja użytkownika z listami
+  following  MediaList[]  @relation("FollowersOnLists") // Listy obserwowane przez użytkownika
 }
 
 model Media {
-  id        Int      @id @default(autoincrement())
-  url       String   // URL pliku (adres na serwerze)
-  title     String?  // Opcjonalny tytuł mediów
-  description String?  // Opcjonalny opis mediów
-  tags      String[]  // Tagi przypisane do mediów (lista tagów)
-  createdAt DateTime @default(now())
-  
-  // Relacja: Media są powiązane z użytkownikiem, który je wrzucił
-  uploadedBy User     @relation(fields: [uploadedById], references: [id])
-  uploadedById Int    // Pole klucza obcego, wskazuje na użytkownika
+  id          Int       @id @default(autoincrement())
+  url         String    // URL pliku
+  title       String?   // Opcjonalny tytuł
+  description String?   // Opcjonalny opis
+  tags        String[]  // Tagi
+  aspectRatio Float     // Nowe pole, proporcja szerokości do wysokości
+  createdAt   DateTime  @default(now())
+
+  // Relacja z użytkownikiem, który wrzucił media
+  uploadedBy  User      @relation(fields: [uploadedById], references: [id])
+  uploadedById Int      // Klucz obcy do użytkownika
+}
+
+model MediaList {
+  id          Int          @id @default(autoincrement())
+  name        String       // Nazwa listy (np. "Polubione", "Natura")
+  isDefault   Boolean      @default(false) // Czy jest to lista domyślna
+  isPublic    Boolean      @default(false) // Czy lista jest publiczna
+  user        User         @relation(fields: [userId], references: [id])
+  userId      Int          // Klucz obcy do użytkownika
+  mediaIds    Int[]        // Lista ID mediów przechowywana jako tablica
+  followers   User[]       @relation("FollowersOnLists") // Użytkownicy obserwujący listę
 }

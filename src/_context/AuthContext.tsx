@@ -19,15 +19,26 @@ const authReducer = (state: AuthState, action: AuthActionProps): AuthState => {
       return {
         token: action.payload?.token || null,
         user: action.payload?.user || null,
+        isInitialized: true,
       };
     case "LOGOUT":
+      localStorage.removeItem("user");
       return {
         token: null,
         user: null,
+        isInitialized: true,
       };
     default:
       return state;
   }
+};
+
+const validateTokenDate = (token: string) => {
+  const tokenPayload = token.split(".")[1];
+  const decodedTokenPayload = atob(tokenPayload);
+
+  const decodedTokenPayloadObject = JSON.parse(decodedTokenPayload);
+  return decodedTokenPayloadObject.exp * 1000 > Date.now();
 };
 
 export const AuthContextProvider = ({
@@ -38,6 +49,7 @@ export const AuthContextProvider = ({
   const initialState: AuthState = {
     token: null,
     user: null,
+    isInitialized: false,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -49,12 +61,17 @@ export const AuthContextProvider = ({
 
   useEffect(() => {
     const user = localStorage.getItem("user");
+    const parsedUser = JSON.parse(user);
     if (user) {
-      dispatch({ type: "LOGIN", payload: JSON.parse(user) });
+      if (validateTokenDate(parsedUser.token)) {
+        dispatch({ type: "LOGIN", payload: JSON.parse(user) });
+      } else {
+        dispatch({ type: "LOGOUT" });
+      }
+    } else {
+      dispatch({ type: "LOGOUT" });
     }
   }, []);
-
-  // console.log(state);
 
   return (
     <AuthContext.Provider value={authContextValue}>

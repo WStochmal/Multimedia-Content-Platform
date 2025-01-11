@@ -22,6 +22,7 @@ export interface AuthProps {
     email: string;
     avatar?: string;
   } | null;
+  isInitialized: boolean;
 }
 
 // Definition: Interfaces for Auth Action Props

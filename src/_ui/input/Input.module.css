@@ -12,6 +12,7 @@
   border: 0;
   background: transparent;
   width: 100%;
+  font-size: 0.8rem;
 }
 .input:focus {
   outline: none;
