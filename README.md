@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Multimedia Content Platform
 
-## Getting Started
+[Polska wersja](#polska-wersja) | [English version](#english-version)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Polska wersja
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja webowa umożliwiająca organizowanie, wyszukiwanie i udostępnianie treści multimedialnych. Platforma oferuje obsługę kont użytkowników, tagowanie materiałów, dodawanie do ulubionych oraz system rekomendacji. Użytkownicy mogą w intuicyjny sposób przesyłać, przeglądać i pobierać pliki multimedialne.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Stack technologiczny:**
+`React`, `Next.js`, `TypeScript`, `Prisma`, `PostgreSQL`, `CSS`, `JWT`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Główne funkcje:**
 
-## Learn More
+- Dodawanie i zarządzanie obrazami
+- Wyszukiwanie i przeglądanie po tagach
+- Pobieranie multimediów
+- Autoryzacja użytkowników
+- Oznaczanie ulubionych
+- Spersonalizowane rekomendacje (dla zalogowanych użytkowników na podstawie ulubionych)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## English version
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A web application for organizing, searching, and sharing multimedia content. The platform offers user account management, content tagging, favorites, and a recommendation system. Users can intuitively upload, browse, and download multimedia files.
 
-## Deploy on Vercel
+**Tech stack:**
+`React`, `Next.js`, `TypeScript`, `Prisma`, `PostgreSQL`, `CSS`, `JWT`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Main features:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Upload and manage images
+- Search and browse by tags
+- Download media
+- User authentication
+- Mark favorites
+- Personalized recommendations (for logged-in users based on favorites)
+
+---
+
+## Screenshots
+
+![Gallery view](images/gallery_1-min.png)
+![Gallery view](images/gallery_2-min.png)
+![Gallery view](images/gallery_3-min.png)
+![Gallery view](images/gallery_4-min.png)

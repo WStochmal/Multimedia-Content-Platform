@@ -127,19 +127,22 @@ const getRankedMediaList = async (
   searchValue,
   userId
 ) => {
-  // Połączenie tagów z ulubionych mediów i najczęściej używanych tagów
+  // Combine all tags from favourite media and user uploaded media
   const allTags = Array.from(
     new Set([
       ...(favouriteMediaList.allFavouriteMediaTags || []),
       ...(mostUsedUserTags.allTags || []),
     ])
   );
+  console.log("All tags:", allTags);
 
-  // Utworzenie rankingu tagów
+  // Create a ranking list for tags
   const tagsRankingList = getTagsRankingList(
     mostUsedUserTags.sortedTagListCount,
     favouriteMediaList.sortedFavouriteMediaTags
   );
+
+  console.log("Tags ranking list:", tagsRankingList);
 
   // Pobranie 150 najnowszych zdjęć na podstawie ulubionych tagów
   const mediaBatchSize = 150;
@@ -151,7 +154,7 @@ const getRankedMediaList = async (
     where: {
       OR: [
         {
-          tags: { hasSome: allTags }, // Zdjęcia zawierające dowolny z ulubionych tagów
+          tags: { hasSome: allTags }, // Zdjęcia zawierające dowolny tag z listy wszytskkich
         },
       ],
       NOT: [
@@ -217,6 +220,8 @@ const getRankedMediaList = async (
 };
 
 const getTagsRankingList = (sortedTagListCount, sortedFavouriteMediaTags) => {
+  console.log("Sorted tag list count:", sortedTagListCount);
+  console.log("Sorted favourite media tags:", sortedFavouriteMediaTags);
   const favouriteTagWeight = 0.6;
   const userTagWeight = 0.4;
 
@@ -235,8 +240,6 @@ const getTagsRankingList = (sortedTagListCount, sortedFavouriteMediaTags) => {
   const tagsRankingList = Array.from(tagMap.entries())
     .map(([tag, weight]) => ({ tag, weight }))
     .sort((a, b) => b.weight - a.weight);
-
-  console.log("Tags ranking list:", tagsRankingList);
 
   return tagsRankingList;
 };

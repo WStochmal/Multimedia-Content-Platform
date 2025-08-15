@@ -5,7 +5,6 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
-// !TODO - move prisma to separate file;validate data; catch exceptions,check if user exists
 
 export async function POST(req: NextRequest) {
   try {
@@ -25,8 +24,9 @@ export async function POST(req: NextRequest) {
     const user = await prisma.user.findUnique({
       where: { email },
     });
-    // !TODO - check if user exists, return 404 if not
-    if (!user) return;
+    if (!user) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) {
